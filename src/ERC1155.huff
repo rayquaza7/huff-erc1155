@@ -1,7 +1,32 @@
+// SOLMATE ERC1155 WITH MINT, BURN AND URI STORAGE
+
 /* Interface */
+#define function uri(uint256) view returns(string);
+
+
+
 
 /* Storage Slots */
 
+// mapping(address=>mapping(uint256=>uint256))
+#define constant BALANCE_OF_MAP_SLOT = FREE_STORAGE_POINTER()
+//  mapping(address=>mapping(address=>bool))
+#define constant IS_APPROVED_FOR_ALL_MAP_SLOT = FREE_STORAGE_POINTER()
+// URI
+#define constant URI_SLOT = FREE_STORAGE_POINTER()
+
 /* EVENT SIGNATURES */
+// keccak256 of event name and topic types
+
+// event TransferSingle(address,address,address,uint256,uin256)
+#define constant TRANSFER_SINGLE_EVENT_SIG = 0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62
+// event TransferBatch(address,address,address,uint256[],uin256[])
+#define constant TRANSFER_BATCH_EVENT_SIG = 0x4a39dc06d4c0dbc64b70af90fd698a233a518aa5d07e595d983b8c0526c8f7fb
+// event ApprovalForAll(address,address,bool)
+#define constant APPROVAL_FOR_ALL_EVENT_SIG = 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31
+// event URI(string,uint256)
+#define constant URI_EVENT_SIG = 0x6bb7ff708619ba0610cba295a58592e0451dee2622938c8755667688daf3529b
 
 /* Methods */
+
+#define macro URI()
